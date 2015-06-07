@@ -15,3 +15,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+#ignore other unneeded files.
+*.swp
+*.swo
+*~
+.project
+.DS_Store
+.idea
+.secret
