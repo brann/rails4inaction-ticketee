@@ -49,4 +49,7 @@ end
 group :test do
   # browser integration testing
   gem 'capybara', '~> 2.4'
+
+  # generate test data
+  gem "factory_girl_rails", "~> 4.5"
 end
