@@ -53,6 +53,9 @@ group :development, :test do
 
   # use RSpec for BDD
   gem 'rspec-rails', '~> 3.2.1'
+
+  # authentication
+  gem 'devise', '~> 3.4.1'
 end
 
 group :test do
