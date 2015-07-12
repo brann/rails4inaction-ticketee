@@ -41,6 +41,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   # better form syntax and styles
   gem "simple_form", "~> 3.1.0"
 
+  # role management
+  gem "pundit", "~> 0.3.0"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
