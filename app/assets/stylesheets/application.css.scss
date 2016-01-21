@@ -2,9 +2,10 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "projects";
+@import "admin/application";
+@import "admin/users";
 @import "responsive";
 @import "tickets";
-@import "admin/application";
 
 .page-header {
   position: relative;
