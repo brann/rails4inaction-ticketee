@@ -5,7 +5,7 @@ RSpec::Matchers.define :permit_action do |action|
 
   failure_message do |policy|
     "#{policy.class} does not allow #{policy.user || "nil"} to " +
-      "perform :#{actoin}? on #{policy.record}."
+      "perform :#{action}? on #{policy.record}."
   end
 
   failure_message_when_negated do |policy|
