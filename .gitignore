@@ -24,3 +24,6 @@
 .DS_Store
 .idea
 .secret
+
+# file uploads
+/public/uploads
