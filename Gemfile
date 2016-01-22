@@ -44,6 +44,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   # role management
   gem "pundit", "~> 0.3.0"
 
+  # authentication
+  gem 'devise', '~> 3.4.1'
+
+  gem "carrierwave", "~> 0.10.0"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -56,14 +61,14 @@ group :development, :test do
 
   # use RSpec for BDD
   gem 'rspec-rails', '~> 3.2.1'
-
-  # authentication
-  gem 'devise', '~> 3.4.1'
 end
 
 group :test do
   # browser integration testing
   gem 'capybara', '~> 2.4'
+
+  # screenshots on error
+  gem 'capybara-screenshot'
 
   # generate test data
   gem "factory_girl_rails", "~> 4.5"
