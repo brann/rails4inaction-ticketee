@@ -78,3 +78,7 @@ a.delete {
 .alert-alert {
   @extend .alert-danger;
 }
+
+#tickets, #states li {
+  padding-bottom: 10px;
+}
