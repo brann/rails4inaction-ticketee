@@ -9,7 +9,8 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = @project.tickets.build(ticket_params)
+    @ticket = @project.tickets.new
+    @ticket.attributes = sanitize_parameters
     @ticket.author = current_user
     authorize @ticket, :create?
 
@@ -63,5 +64,13 @@ class TicketsController < ApplicationController
 
   def set_ticket
     @ticket = @project.tickets.find(params[:id])
+  end
+
+  def sanitize_parameters
+    whitelisted_params = ticket_params
+    unless policy(@ticket).tag?
+      whitelisted_params.delete(:tag_names)
+    end
+    whitelisted_params
   end
 end
