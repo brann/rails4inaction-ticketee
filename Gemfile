@@ -59,6 +59,8 @@ group :development, :test do
 
   # use RSpec for BDD
   gem 'rspec-rails', '~> 3.2.1'
+
+  gem "searcher", github: "radar/searcher"
 end
 
 group :test do

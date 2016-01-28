@@ -22,6 +22,10 @@ class Ticket < ActiveRecord::Base
     end
   end
 
+  searcher do
+    label :tag, from: :tags, field: "name"
+  end
+
   private
 
   def assign_default_state
