@@ -78,4 +78,6 @@ group :test do
 
   # database cleaner to work around browser tests in a different thread
   gem "database_cleaner", "~> 1.4"
+
+  gem "email_spec", "~> 1.6.0"
 end
