@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_project
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :watch]
 
   def new
     @ticket = @project.tickets.build
@@ -10,7 +10,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @project.tickets.new
-    @ticket.attributes = sanitize_parameters
+    @ticket.attributes = sanitized_parameters
     @ticket.author = current_user
     authorize @ticket, :create?
 
@@ -61,6 +61,18 @@ class TicketsController < ApplicationController
     render "projects/show"
   end
 
+  def watch
+    authorize @ticket, :show?
+    if @ticket.watchers.exists?(current_user.id)
+      @ticket.watchers.destroy(current_user)
+      flash[:notice] = "You are no longer watching this ticket."
+    else
+      @ticket.watchers << current_user
+      flash[:notice] = "You are now watching this ticket."
+    end
+    redirect_to project_ticket_path(@ticket.project, @ticket)
+  end
+
   private
 
   def ticket_params
@@ -76,7 +88,7 @@ class TicketsController < ApplicationController
     @ticket = @project.tickets.find(params[:id])
   end
 
-  def sanitize_parameters
+  def sanitized_parameters
     whitelisted_params = ticket_params
     unless policy(@ticket).tag?
       whitelisted_params.delete(:tag_names)
