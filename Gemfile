@@ -72,7 +72,7 @@ group :test do
   gem 'capybara', '~> 2.4'
 
   # screenshots on error
-  gem 'capybara-screenshot'
+  # gem 'capybara-screenshot'
 
   # generate test data
   gem "factory_girl_rails", "~> 4.5"
