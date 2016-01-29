@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-ruby "2.3.0"
+# ruby "2.3.0"
+ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -87,7 +88,8 @@ end
 
 group :production do
   # file store with s3
-  gem "fog", "~> 1.36.0"
+  # gem "fog", "~> 1.36.0"
+  gem "fog", "~> 1.29.0"
   # but use postgresql for production
   gem "pg",     group: :production
   # 12factor for logging and assets
