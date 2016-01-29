@@ -88,8 +88,11 @@ end
 
 group :production do
   # file store with s3
-  # gem "fog", "~> 1.36.0"
-  gem "fog", "~> 1.29.0"
+  # gem "fog", "~> 1.29.0"
+  # updating fog due to recent net-ssh error with some changes from
+  # `bundle update`
+  # https://github.com/fog/fog/issues/3765
+  gem "fog", "~> 1.36.0"
   # but use postgresql for production
   gem "pg",     group: :production
   # 12factor for logging and assets
