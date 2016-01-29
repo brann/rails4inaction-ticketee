@@ -3,10 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: [:development, :test]
-# but use postgresql for production
-gem "pg",     group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -50,7 +46,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
   gem "carrierwave", "~> 0.10.0"
 
+  gem "searcher", github: "radar/searcher"
+
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', group: [:development, :test]
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -62,8 +63,6 @@ group :development, :test do
 
   # use RSpec for BDD
   gem 'rspec-rails', '~> 3.2.1'
-
-  gem "searcher", github: "radar/searcher"
 end
 
 group :test do
@@ -86,5 +85,10 @@ group :test do
 end
 
 group :production do
+  # file store with s3
   gem "fog", "~> 1.29.0"
+  # but use postgresql for production
+  gem "pg",     group: :production
+  # 12factor for logging and assets
+  gem "rails_12factor", group: :production
 end
