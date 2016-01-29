@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -91,4 +92,6 @@ group :production do
   gem "pg",     group: :production
   # 12factor for logging and assets
   gem "rails_12factor", group: :production
+  # production webserver
+  gem "puma", group: :production
 end
