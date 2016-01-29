@@ -81,3 +81,7 @@ group :test do
 
   gem "email_spec", "~> 1.6.0"
 end
+
+group :production do
+  gem "fog", "~> 1.29.0"
+end
