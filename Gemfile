@@ -50,15 +50,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
   gem "searcher", github: "radar/searcher"
 
+group  :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+end
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', group: [:development, :test]
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -72,7 +74,7 @@ group :test do
   gem 'capybara', '~> 2.4'
 
   # screenshots on error
-  # gem 'capybara-screenshot'
+  gem 'capybara-screenshot'
 
   # generate test data
   gem "factory_girl_rails", "~> 4.5"
